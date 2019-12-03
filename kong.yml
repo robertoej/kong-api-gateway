@@ -2,7 +2,7 @@ _format_version: "1.1"
 
 services:
 - name: node-app
-  url: http://localhost:8080
+  url: http://node-app-1:8081
   routes:
   - name: node-route
     paths:
