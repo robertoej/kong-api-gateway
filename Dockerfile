@@ -1,4 +1,4 @@
-FROM kong:alpine
+FROM kong:1.1.2
 
 COPY kong.yml /
 
