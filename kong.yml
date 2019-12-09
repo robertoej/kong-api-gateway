@@ -2,8 +2,22 @@ _format_version: "1.1"
 
 services:
 - name: node-app
-  url: http://node-app-1:8081
-  routes:
-  - name: node-route
-    paths:
-    - /
+  protocol: http
+  host: node-app
+  port: 8081
+  path: "/"
+routes:
+- name: route-node-app
+  service: node-app
+  strip_path: true
+  methods:
+  - GET
+  paths:
+  - "/app"
+upstreams:
+- name: node-app
+  targets:
+  - target: node-app-1:8081
+    weight: 900
+  - target: node-app-2:8082
+    weight: 100
